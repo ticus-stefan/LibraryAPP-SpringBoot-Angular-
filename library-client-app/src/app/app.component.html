@@ -1,0 +1,12 @@
+<nav class='navbar navbar-expand navbar-light bg-light'>
+    <a class='navbar-band'><img id="logo" src="\assets\Date\Little-Library-Title-1-e1516662275586.png"></a>
+    <a class='navbar-band'><h1>Library Store</h1></a>
+    <ul class='nav nav-pills'>
+      <li><a class='nav-link' [routerLink]="['/library']">Home</a></li>
+      <li><a class='nav-link' [routerLink]="['library/all']">Book List</a></li>
+      <li><a class='nav-link' [routerLink]="['library/cart']">Cart</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+  <router-outlet></router-outlet>
+  </div>

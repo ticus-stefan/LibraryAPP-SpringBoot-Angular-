@@ -1,0 +1,44 @@
+
+<div class="card" *ngIf='book'>
+    <div class="card-header">
+        {{pageTitle + ' : ' + book.title}}
+    </div>
+    <div class="card=footer">
+        
+        <div class="table-inf">
+            <table class="table table-borderless">
+                <tr>
+                  <th>Name</th>
+                  <td>{{book.title}}</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>{{book.desciption}}</td>
+                  </tr>
+
+                  <tr>
+                    <th>Price</th>
+                    <td>{{book.price | currency:"EUR"}}</td>
+                  </tr>
+              
+              </table>
+             
+            
+        </div>
+        <div>
+            <img [src]='book.imageUrl' 
+            [title]='book.title'
+            width="300px"
+            height="400px"
+            [style.margin,px]="2"
+            >
+        </div>
+
+    </div>
+    <button class='btn btn-outline-secondary' (click)='onBack()' style="width: 80px;">
+        <i class="fa fa-chevron-left"></i> Back
+    </button>
+    <button class='btn btn-outline-secondary' (click)='addBook()' style="width: 80px;">
+         Add
+    </button>
+</div>

@@ -1,0 +1,37 @@
+<div *ngIf='books && books.length'><table class="table" >
+    <thead>
+        <tr>
+            <th>Book Title</th>
+            <th>Price</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let book of books'>
+            <td>{{book.title}}</td>
+            <td>{{book.price | currency:"RON "}}</td>
+            <td><a (click)="deleteCart(book)" class="pull-right text-danger"><i class="fa fa-trash-o"></i></a></td>
+        </tr>
+    </tbody>
+    <tfoot class="bg-success">
+        <tr>
+        <td colspan="2">Total </td>
+        <td>{{totalPrice| currency:"RON"}}</td>
+        </tr>
+    </tfoot>
+</table>
+<button  class='btn btn-outline-secondary' (click)="loadOrder()" (click)="updatePrice()" style="width: 150px;">
+    Finalize Order
+</button>
+<div *ngIf="load">
+    <app-order [totalPrice]="totalPrice" ></app-order>
+</div>
+</div>
+
+
+<div class="card bg-light mb-3" style="max-width: 25rem; margin-left: auto; margin-right: auto;" 
+*ngIf='books.length==0'>
+    <div class="card-body">
+        <h2>Your cart is empty</h2>
+    </div>
+  </div>

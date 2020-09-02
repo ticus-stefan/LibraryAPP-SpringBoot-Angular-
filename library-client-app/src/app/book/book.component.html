@@ -1,0 +1,33 @@
+
+<div class="row">
+    <div class="col-md-2">Filter by title:</div>
+    <div class="col-md-4">
+        <input type="text" [(ngModel)]='listFilter'>
+    </div>
+
+</div>
+<table class="table" *ngIf='books && books.length'>
+    <thead>
+        <tr>
+            <th>
+                <button class="btn btn-primary" (click)="toggleImage()">{{showImage?'Hide Image':'Show Image'}}</button>
+            </th>
+            <th>Book Title</th>
+            <th>Author</th>
+            <th>Price</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let book of filteredProducts'>
+            <td><img [src]='book.imageUrl' 
+                [title]='book.Title'
+                width="50px"
+                [style.margin,px]="2"
+                *ngIf='showImage'></td>
+            <td><a [routerLink]="['/library/all',book.id]">{{book.title}}</a></td>
+            <td>{{book.author}}</td>
+            <td>{{book.price | currency:"RON "}}</td>
+        </tr>
+    </tbody>
+</table>
